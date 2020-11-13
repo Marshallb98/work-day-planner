@@ -69,3 +69,7 @@ textarea{
   font-size: 20px;
   transition: all .3s ease-in-out;
 }
+.saveBtn:focus {
+  outline: 0px auto -webkit-focus-ring-color;
+  box-shadow: 0 0 0 1px black;
+}
