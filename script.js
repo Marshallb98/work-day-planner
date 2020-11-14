@@ -5,13 +5,13 @@ $(document).ready(function () {
     console.log(time)
     // function that changed the background color to gray red or green that corresponds with past present and future, time resets everyday at 12am to the new day
     function backgroundColor() {
-        $(".row").each(function () {
-            rowHour = parseInt($(this).attr("id"))
-            console.log(rowHour)
-            if (rowHour < time) {
+        $(".description").each(function () {
+            descriptionHour = parseInt($(this).parent().attr("id"))
+            console.log(descriptionHour)
+            if (descriptionHour < time) {
                 $(this).addClass("past")
             }
-            else if (rowHour === time) {
+            else if (descriptionHour === time) {
                 $(this).removeClass("past")
                 $(this).addClass("present")
             }
@@ -33,15 +33,15 @@ $(document).ready(function () {
         localStorage.setItem(inputTime, inputValue)
     })
     var localTime = ["9", "10", "11", "12", "13", "14", "15", "16", "17"]
-            $(localTime).each(function (index, item) {
-                console.log(index)
-                console.log(item)
-                var newSelector = "#" + item
-                console.log(newSelector)
-                var savedItem = localStorage.getItem(item)
-                console.log(savedItem)
-                $(newSelector).children(".description").val(savedItem)
-                
-            })
+    $(localTime).each(function (index, item) {
+        console.log(index)
+        console.log(item)
+        var newSelector = "#" + item
+        console.log(newSelector)
+        var savedItem = localStorage.getItem(item)
+        console.log(savedItem)
+        $(newSelector).children(".description").val(savedItem)
+
+    })
 });
 
